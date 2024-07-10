@@ -112,13 +112,19 @@ namespace assessment_platform_developer.Models
 		public string Zip { get; set; }
 		public string Country { get; set; }
 		public string Notes { get; set; }
-		public string ContactName { get; set; }
-		public string ContactPhone { get; set; }
-		public string ContactEmail { get; set; }
-		public string ContactTitle { get; set; }
-		public string ContactNotes { get; set; }
+        // Contact information encapsulated in a separate class
+        public Contact ContactInfo { get; set; }
+    }
 
-	}
+    [Serializable]
+    public class Contact
+	{
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Title { get; set; }
+        public string Notes { get; set; }
+    }
 
 	public class CustomerDBContext : DbContext
 	{
